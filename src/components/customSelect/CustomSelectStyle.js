@@ -1,9 +1,21 @@
 import styled from "styled-components";
 import {AiOutlineDown} from "react-icons/ai";
+
+
 export const Container = styled.div `
-    width: 200px;
+    width: 500px;
+    margin-top: 40px;
+    display: flex;
+    justify-content: space-between;
+`
+export const Label = styled.h2 `
+    font-family: sans-serif;
+`
+export const DataContainer = styled.div `
+    width: 300px;
     position: relative;
 `
+
 export const Header = styled.div `
     width: 100%;
     height: 40px;
@@ -15,11 +27,13 @@ export const Header = styled.div `
     box-shadow: 0 0 5px #fff;
     font-family: sans-serif;
     cursor: pointer;
-
+    border-bottom: 2px solid #999;
 `
 export const HeaderText = styled.span `
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
+    letter-spacing: 1px;
+    font-style: italic;
 `
 export const HeaderIcon = styled(AiOutlineDown) `
     font-size: 16px;
@@ -31,7 +45,7 @@ export const DropList = styled.div `
     border: 1px solid #fff;
     position: absolute;
     left: 0;
-    top: 50px;
+    top: 43px;
     z-index: 2;
     background-color: #888;
 

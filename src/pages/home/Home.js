@@ -1,43 +1,21 @@
 import axios from 'axios'
 import React, { useEffect, useState, useContext } from 'react'
-import styled from 'styled-components'
 import Card from '../../components/card/Card'
 import SmallCard from '../../components/card/SmallCard'
 import { homeContext } from '../../components/contextsApi/HomeContext'
+import Countries from '../../components/CountriesSection/Countries'
 import CustomSelect from '../../components/customSelect/CustomSelect'
 import { fetcchCountries } from '../../components/functions/FetchCoutries'
-import { fetchSummary } from '../../components/functions/FetchSummary'
+import { fetchsummary } from '../../components/functions/FetchData'
+import GlobalData from '../../components/GlobalSection/GlobalData'
 
-const Container = styled.div `
-  width: 100%;
-  min-height: 100vh;
-  padding: 30px;
-  `
-const WorldSection = styled.div `
-  width: 100%;
-  margin: 0px auto 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
-  const Hero = styled.div `
-    width: 100%;
-    margin-top: 20px;
-    display: grid;
-    grid-template-columns: 60% 40%;
-    gap: 15px;
-  `
-const CardsContainer = styled.div `
-  width: 100%;
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-`
-const Last = styled.div `
-  
-`
+import {Container, WorldSection, Hero, CardsContainer, Last} from './HomeStyles'
+
 
 const Home = () => {
+  
+  const [globalData, setGlobalData] = useState({})
+  const [allCountriesLast, setAllCountriesLast] = useState([])
 
   const [input, setInput] = useState("")
 
@@ -45,10 +23,9 @@ const Home = () => {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState("")
   const [countries, setCountries] = useState([])
-  const [summary, setSummary] = useState()
   const [GlobalConfirmed, setGlobalConfirmed] = useState()
   const [GlobalDeaths, setGlobalDeaths] = useState()
-
+  
   const {selectedCountry, setSelectedCountry} = useContext(homeContext)
 
   const [newConfirmed, setNewConfirmed] = useState()
@@ -58,65 +35,75 @@ const Home = () => {
   const [totalDeaths, setTotalDeaths] = useState()
   const [totalRecovered, setTotalRecovered] = useState()
   const [date, setDate] = useState()
+  
+  // useEffect(() => {
+    //   const func = async()=>{
+  //     // let c = await fetcchCountries()
+  //     // setCountries(c)
+  //     let s = await fetchSummary()
+  //     setSummary(s)
+  //   }
+
+  //   func()
+  // }, [])
+
+  // useEffect(() => {
+  //   if(summary){
+  //     setGlobalConfirmed(summary.Global.TotalConfirmed)
+  //     setGlobalDeaths(summary.Global.TotalDeaths)
+  //   }
+  // }, [summary])
+
+  // useEffect(() => {
+  //   if(selectedCountry){
+  //     setNewConfirmed(selectedCountry.NewConfirmed)
+  //     setNewDeaths(selectedCountry.NewDeaths)
+  //     setNewRecovered(selectedCountry.NewRecovered)
+  //     setTotalConfirmed(selectedCountry.TotalConfirmed)
+  //     setTotalDeaths(selectedCountry.TotalDeaths)
+  //     setTotalRecovered(selectedCountry.TotalRecovered)
+  //     let stringDate = new Date("2021-08-08T14:53:10.091Z").toDateString()
+  //     console.log("stringDate: ", stringDate);
+  //     setDate(stringDate)
+  //   }
+  // }, [selectedCountry])
 
   useEffect(() => {
-    const func = async()=>{
-      // let c = await fetcchCountries()
-      // setCountries(c)
-      let s = await fetchSummary()
-      setSummary(s)
-    }
+    const fetchSummaryData = async ()=>{
+      const {Global, Countries} = await fetchsummary()
+      setGlobalData(Global)
+      setAllCountriesLast(Countries)
 
-    func()
+    }
+    fetchSummaryData() 
+
+
   }, [])
 
-  useEffect(() => {
-    if(summary){
-      setGlobalConfirmed(summary.Global.TotalConfirmed)
-      setGlobalDeaths(summary.Global.TotalDeaths)
-    }
-  }, [summary])
-
-  useEffect(() => {
-    if(selectedCountry){
-      setNewConfirmed(selectedCountry.NewConfirmed)
-      setNewDeaths(selectedCountry.NewDeaths)
-      setNewRecovered(selectedCountry.NewRecovered)
-      setTotalConfirmed(selectedCountry.TotalConfirmed)
-      setTotalDeaths(selectedCountry.TotalDeaths)
-      setTotalRecovered(selectedCountry.TotalRecovered)
-      let stringDate = new Date("2021-08-08T14:53:10.091Z").toDateString()
-      console.log("stringDate: ", stringDate);
-      setDate(stringDate)
-    }
-  }, [selectedCountry])
+  console.log("GlobalData", globalData);
+  console.log("AllCountriesLast", allCountriesLast);
 
   
   return (
     <Container>
-      <WorldSection>
-        <SmallCard
-          emoj_Bg="rgb(153 174 153 / 40%)" 
-          emoj_color="green"
-          num={GlobalConfirmed} 
-          label="Confirmed"
-        />
-        <SmallCard
-          emoj_Bg="rgb(209 209 237)" 
-          emoj_color="#30222a" 
-          num={GlobalDeaths}
-          label="Deaths"
-        />
-        
-      </WorldSection>
+      <GlobalData
+        GlobalConfirmed={globalData.TotalConfirmed} 
+        GlobalDeaths={globalData.TotalDeaths}
+      />
+
+      <Countries
+        allCountriesLast={allCountriesLast}
+      />
+
       
-      <CustomSelect 
+      {/* <CustomSelect 
         data={summary} 
         input={input} 
         setInput={setInput}
       />
+ */}
 
-      <Hero>
+      {/* <Hero>
         <CardsContainer>
           <Card
             label="confirmed"
@@ -141,7 +128,7 @@ const Home = () => {
           />
         </CardsContainer>
         <Last>last</Last>
-      </Hero>
+      </Hero>  */}
     </Container>
   )
 }

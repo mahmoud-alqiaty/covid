@@ -1,5 +1,5 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import styled from 'styled-components'
 import {SiCoronaengine} from 'react-icons/si'
 import {HiEmojiSad} from 'react-icons/hi'
 import CountUp from 'react-countup'
