@@ -12,14 +12,14 @@
 
 
 ## Overview
-A web app displays the numbers of covid-19 history and current cases numbers for any country in the world from the [REST covid-19 API](https://covid19api.com/) and represents them by a charts .
+A web app displays all covid-19 history and current cases numbers for any country in the world from the [REST covid-19 API](https://covid19api.com/) and represents them by a charts .
 ### Features
 
 Main view:
 - Completely responsive for all screens sizes.
 - Global section: 
     - Show two small cards of the total numbers of all confirmed and deaths cases over the world until now.
--Single country section
+- Single country section
     - Show three larger cards for confirmed, recovered, and deaths cases both new and total until now.
     - Show a Line-chart for confirmed and deaths cases over the last ten days.
     - Show a Line-chart for confirmed and deaths cases overall days of a certain month.
@@ -37,9 +37,9 @@ User is able to:
 
 ### Screenshot
 
-- [Desktop](https://www9.0zz0.com/2021/08/19/20/146495953.png)
+- ![Desktop](https://ibb.co/zsHWm5g)
 
-- [Mobile-dark](https://www9.0zz0.com/2021/08/19/20/178395074.png)
+- ![Mobile](https://ibb.co/m0xBH8G)
 
 ## My process
 
@@ -50,6 +50,8 @@ User is able to:
 - Flexbox
 - CSS Grid
 - [React](https://reactjs.org/) - JS library
+- [chartjs](https://www.chartjs.org/docs/latest/) - JS library
+- [react-chartjs](https://github.com/reactchartjs/react-chartjs-2)
 - [Styled Components](https://styled-components.com/) - For styles
 - [Axios](https://axios-http.com/)
 
