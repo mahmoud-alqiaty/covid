@@ -3,12 +3,20 @@ import {AiOutlineDown} from "react-icons/ai";
 
 
 export const Container = styled.div `
-    width: 500px;
-    margin-top: 40px;
+    width: 500px ;
     display: flex;
     justify-content: space-between;
+
+    @media screen and (max-width: 1100px){
+        width: ${({responsive})=> responsive && "300px"} ;
+    }
+    @media screen and (max-width: 600px){
+        width: ${({responsive})=> responsive && "160px"} ;
+    }
+
+    
 `
-export const Label = styled.h2 `
+export const Label = styled.h4 `
     font-family: sans-serif;
 `
 export const DataContainer = styled.div `

@@ -1,10 +1,12 @@
 import React from 'react'
 import Card from '../../card/Card'
-import { LastDataContainer, CardsContainer } from './LastDataStyles'
+import { LastDataContainer, CardsContainer, LastChartContainer } from './LastDataStyles'
+import { Line } from 'react-chartjs-2'
 
-const LastData = ({countryLastTotal, countryLastDay}) => {
+const LastData = ({countryLastTotal, countryLastDay, countryLastTenDays}) => {
 
-  // console.log("selectedCountry", selectedCountry);
+  console.log("countryLastTenDays", countryLastTenDays);
+
   return (
     <LastDataContainer>
       <CardsContainer>
@@ -31,6 +33,33 @@ const LastData = ({countryLastTotal, countryLastDay}) => {
           />
           
         </CardsContainer>
+        <LastChartContainer>
+        <h3>the last 10 dayes</h3>
+          <Line 
+            data={{
+              labels: countryLastTenDays.map(day=> day.date),
+              datasets: [
+                {
+                  label:"Confermed", 
+                  data: countryLastTenDays.map(day=> day.confirmed),
+                  borderColor: "green",
+                },
+                {
+                  label:"Deaths", 
+                  data: countryLastTenDays.map(day=> day.deaths),
+                  backgroundColor: "rgb(209 209 237)",
+                  borderColor: "#30222a",
+                  fill: true
+                }
+              ]
+            }}
+            width={500}
+            height={400}
+            options={{
+              maintainAspectRatio: false
+            }}
+          />
+        </LastChartContainer>
     </LastDataContainer>
   )
 }

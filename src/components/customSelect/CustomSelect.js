@@ -16,7 +16,7 @@ import {
     
 } from "./CustomSelectStyle"
 
-const CustomSelect = ({label, data, header, setHeader}) => {
+const CustomSelect = ({label, data, handleSelect, header, responsive}) => {
 
     const [openList, setOpenList] = useState(false)
     const [input, setInput] = useState("")
@@ -38,16 +38,9 @@ const CustomSelect = ({label, data, header, setHeader}) => {
         setDisplyedData(arr)
     }
 
-    const handleSelect = (item)=>{
-        console.log("selected item", item);
-        setHeader(item)
-        // setSelectedCountry(item)
-        setOpenList(false)
-    }
-
   return (
-    <Container>
-        <Label>Select {label}: </Label>
+    <Container responsive={responsive}>
+        {/* <Label>Select {label}: </Label> */}
         <DataContainer>
             <Header onClick={()=> setOpenList(!openList)}>
                 <HeaderText>
@@ -67,7 +60,12 @@ const CustomSelect = ({label, data, header, setHeader}) => {
                         displyedData.length && displyedData.map((item, index)=>
                             <DropList_Item 
                                 key={index} 
-                                onClick={()=> handleSelect(item)}
+                                onClick={()=> {
+                                    handleSelect(item); 
+                                    setOpenList(false); 
+                                    setInput("");
+                                    setDisplyedData(data)
+                                }}
                             >
                                 {item}
                             </DropList_Item>
