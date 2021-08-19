@@ -3,7 +3,7 @@ import {AiOutlineDown} from "react-icons/ai";
 
 
 export const Container = styled.div `
-    width: 500px ;
+    /* width: 500px ; */
     display: flex;
     justify-content: space-between;
 

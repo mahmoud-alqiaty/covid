@@ -40,7 +40,6 @@ const CustomSelect = ({label, data, handleSelect, header, responsive}) => {
 
   return (
     <Container responsive={responsive}>
-        {/* <Label>Select {label}: </Label> */}
         <DataContainer>
             <Header onClick={()=> setOpenList(!openList)}>
                 <HeaderText>
@@ -51,7 +50,7 @@ const CustomSelect = ({label, data, handleSelect, header, responsive}) => {
             <DropList openList={openList}>
                 <SearchBox 
                     type="text" 
-                    placeholder="search a country"
+                    placeholder="search..."
                     value={input}
                     onChange={handleChange}
                 />

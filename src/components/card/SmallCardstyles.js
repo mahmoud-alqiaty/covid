@@ -3,7 +3,7 @@ import {SiCoronaengine} from 'react-icons/si'
 import {HiEmojiSad} from 'react-icons/hi'
 
 export const Container = styled.div `
-  width: 220px;
+  width: 250px;
   padding: 15px;
   margin: 0 10px;
   background-color: #fff;
@@ -13,7 +13,6 @@ export const Container = styled.div `
   align-items: center;
 
   @media screen and (max-width: 550px){
-    width: 47%;
     margin-bottom: 15px;
   }
 `
