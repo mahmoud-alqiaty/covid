@@ -37,9 +37,9 @@ User is able to:
 
 ### Screenshot
 
- ! [Desktop](https://ibb.co/zsHWm5g)
+ ![Desktop](./src/images/d.png)
 
- ! [Mobile](https://ibb.co/m0xBH8G)
+ ![Mobile](./src/images/m.png)
 
 ## My process
 
