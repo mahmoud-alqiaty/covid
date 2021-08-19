@@ -44,15 +44,11 @@ export const fetchSingleCountry = async (country)=>{
             lastTenDays.push(oneDay) 
         }
 
-        
         let months_2020 = []
         let months_2021 = []
-        
-        let months_total_2020 = []
-        let months_total_2021 = []
-
-        const days2020 = data.filter(item => new Date(item.Date).getFullYear() == 2020)
-        const days2021 = data.filter(item => new Date(item.Date).getFullYear() == 2021)
+      
+        const days2020 = data.filter(item => new Date(item.Date).getFullYear() === 2020)
+        const days2021 = data.filter(item => new Date(item.Date).getFullYear() === 2021)
 
         let prvTotal = {
             Confirmed: 0,
@@ -60,7 +56,7 @@ export const fetchSingleCountry = async (country)=>{
         }
 
         for(let i=0; i<12; i++){
-            const oneMonth = days2020.filter(day=> new Date(day.Date).getMonth() == i)
+            const oneMonth = days2020.filter(day=> new Date(day.Date).getMonth() === i)
             const reversedOneMonth = oneMonth.reverse()
             let final = []
 
@@ -89,7 +85,7 @@ export const fetchSingleCountry = async (country)=>{
         const currentMonth = new Date().getMonth()
 
         for(let i=0; i<currentMonth; i++){
-            const oneMonth = days2021.filter(day=> new Date(day.Date).getMonth() == i)
+            const oneMonth = days2021.filter(day=> new Date(day.Date).getMonth() === i)
             const reversedOneMonth = oneMonth.reverse()
             let final = []
 
@@ -114,8 +110,6 @@ export const fetchSingleCountry = async (country)=>{
 
             final.length && months_2021.push(final)
         }
-
-        console.log("months_2021", months_2021);
 
         const months_2020_total = months_2020.map(item =>
         {

@@ -9,11 +9,6 @@ export const MonthlySelect = styled.div `
     justify-content: space-between;
     align-items: center;
 
-    /* @media screen and (max-width: 600px){
-        font-size: 12px;
-        line-height: 0.9;
-    } */
-
 `
 
 export const MonthlyChart = styled.div `
@@ -26,7 +21,15 @@ export const MonthlyChart = styled.div `
         font-family: 'Cairo', sans-serif;
     }
 
-    @media screen and (max-width: 500px){
+    .confirmed{
+        color: green;
+    }
+    .deathes{
+        color: rgb(209 209 237);
+    }
+
+    @media screen and (max-width: 600px){
+        margin: 40px auto 70px;
         h3{
             font-size: 14px;
         }

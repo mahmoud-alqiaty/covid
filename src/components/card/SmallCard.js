@@ -7,8 +7,8 @@ const SmallCard = ({emoj_Bg, emoj_color, num, label}) => {
   return (
     <Container>
       <IconContainer emoj_Bg={emoj_Bg} emoj_color={emoj_color}>
-        {label == "Deaths" && <SadIcon emoj_color={emoj_color} />}
-        {label == "Confirmed" && <ConfirmedIcon emoj_color={emoj_color} />}
+        {label === "Deaths" && <SadIcon emoj_color={emoj_color} />}
+        {label === "Confirmed" && <ConfirmedIcon emoj_color={emoj_color} />}
       </IconContainer>
       <Info>
             <h2 className="num" style={{marginBottom: "5px", color: emoj_color}}>

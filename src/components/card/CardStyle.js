@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div `
     width: 32%;
-    height: 200px;
+    height: 190px;
     overflow: hidden;
     padding: 5px 10px;
     background-color: #fff;
@@ -46,9 +46,13 @@ export const CasesNumber = styled.p `
         font-size: 16px;
     }
 `
-export const Date = styled.p `
-    font-size: 14px;
+export const Date = styled.span `
+    font-size: 12px;
     font-style: italic;
+    font-weight: normal;
+    display: block;
+    font-family: sans-serif;
+    color: #aaa;
 
     @media screen and (max-width: 600px){
         font-size: 12px;

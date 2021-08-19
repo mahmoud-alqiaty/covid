@@ -5,8 +5,6 @@ import { Line } from 'react-chartjs-2'
 
 const LastData = ({countryLastTotal, countryLastDay, countryLastTenDays}) => {
 
-  console.log("countryLastTenDays", countryLastTenDays);
-
   return (
     <LastDataContainer>
       <CardsContainer>
@@ -15,7 +13,7 @@ const LastData = ({countryLastTotal, countryLastDay, countryLastTenDays}) => {
             newnum={countryLastDay.confirmed}
             totalNum={countryLastTotal.confirmed}
             date={countryLastDay.date}
-            borderColor="blue"
+            borderColor="green"
           />
           <Card
             label="recovered"
@@ -29,7 +27,7 @@ const LastData = ({countryLastTotal, countryLastDay, countryLastTenDays}) => {
             newnum={countryLastDay.deaths}
             totalNum={countryLastTotal.deaths}
             date={countryLastDay.date}
-            borderColor="red"
+            borderColor="rgb(209 209 237)"
           />
           
         </CardsContainer>

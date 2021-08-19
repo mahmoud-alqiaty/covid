@@ -11,6 +11,13 @@ const AnnaulContainer = styled.div `
         font-family: 'Cairo', sans-serif;
     }
 
+    .confirmed{
+        color: green;
+    }
+    .deathes{
+        color: rgb(209 209 237);
+    }
+
     @media screen and (max-width: 500px){
         h3{
             font-size: 14px;
@@ -20,7 +27,7 @@ const AnnaulContainer = styled.div `
 const Annual = ({data, months, year}) => {
   return (
     <AnnaulContainer>
-        <h3>total confirmed and deathes cases for every month in {year}</h3>
+        <h3>total <span className="confirmed">confirmed</span> and <span className="deathes">deathes</span> cases for every month in {year}</h3>
         <Bar
             data={{
             labels: months.map(month => month.name),

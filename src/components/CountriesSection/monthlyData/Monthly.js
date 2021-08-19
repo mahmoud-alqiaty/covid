@@ -6,8 +6,6 @@ import Annual from '../annaulData/Annual'
 
 
 const Monthly = ({data, country, dataTotal}) => {
-
-  console.log("monthlyYear", data);
     
   const [year, setYear] = useState()
   const [month, setMonth] = useState('')
@@ -68,32 +66,32 @@ const Monthly = ({data, country, dataTotal}) => {
   useEffect(() => {
     if(data.months_2021){
       setYear(2021)
-      const selectedMonth = months.find((item, index)=> data.months_2021.length - 1 == index)
+      const selectedMonth = months.find((item, index)=> data.months_2021.length - 1 === index)
       setMonth(selectedMonth.name)
     } 
   }, [data])
 
 
-  const showMonth = (year, month)=>{
-    const selectedMonth = months.find(item => item.name == month)
-    console.log("selectedMonth", selectedMonth);
-    const selectedMonthNum = selectedMonth && selectedMonth.num
-
-    let myMonth;
-    if(year == 2020){
-      myMonth = data.months_2020.find((item, index) => index == selectedMonthNum)
-      setDisplayedYear(dataTotal.months_2020_total)
-    }else if(year == 2021){
-      myMonth = data.months_2021.find((item, index) => index == selectedMonthNum)
-      setDisplayedYear(dataTotal.months_2021_total)
-    }
-
-    setDisplayedMonth(myMonth)
-  }
+  
   
   useEffect(() => {
+    const showMonth = (year, month)=>{
+      const selectedMonth = months.find(item => item.name === month)
+      const selectedMonthNum = selectedMonth && selectedMonth.num
+  
+      let myMonth;
+      if(year === 2020){
+        myMonth = data.months_2020.find((item, index) => index === selectedMonthNum)
+        setDisplayedYear(dataTotal.months_2020_total)
+      }else if(year === 2021){
+        myMonth = data.months_2021.find((item, index) => index === selectedMonthNum)
+        setDisplayedYear(dataTotal.months_2021_total)
+      }
+  
+      setDisplayedMonth(myMonth)
+    }
     showMonth(year, month)
-  }, [month, year])
+  }, [month, year, data, dataTotal])
 
   const handleSelectMonth = (month_name) => {
     setMonth(month_name)
@@ -124,7 +122,7 @@ const Monthly = ({data, country, dataTotal}) => {
       </MonthlySelect>
     
       <MonthlyChart>
-      <h3>daily confirmed and deathes cases for ({month} - {year})</h3>
+      <h3>daily <span className="confirmed">confirmed</span> and <span className="deathes">deathes</span> cases for ({month} - {year})</h3>
         <Line
           data={{
             labels: displayedMonth && displayedMonth.map(day => day.date),

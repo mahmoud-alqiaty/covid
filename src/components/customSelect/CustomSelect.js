@@ -1,9 +1,7 @@
-import React, { useEffect, useState, useContext } from 'react'
-import { homeContext } from '../contextsApi/HomeContext'
+import React, { useEffect, useState } from 'react'
 
 //import styles
 import {
-    Label,
     Container, 
     Header, 
     HeaderText, 
@@ -21,13 +19,10 @@ const CustomSelect = ({label, data, handleSelect, header, responsive}) => {
     const [openList, setOpenList] = useState(false)
     const [input, setInput] = useState("")
     const [displyedData, setDisplyedData] = useState([])
-    // const [header, setHeader] = useState("")
-    // const [selectedCountry, setSelectedCountry] = useState("")
 
     useEffect(() => {
         if(data.length){
             setDisplyedData(data)
-            // setHeader(data[0])
         }
     }, [data])
 

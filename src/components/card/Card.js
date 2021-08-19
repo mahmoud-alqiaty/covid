@@ -1,13 +1,15 @@
-import React, { useContext, useState } from 'react'
+import React from 'react'
 import CountUp from 'react-countup'
-import { homeContext } from '../contextsApi/HomeContext'
 import { Container, DivCases, CasesNumber, Date, Label } from './CardStyle'
 
 const Card = ({label, newnum, totalNum, date, borderColor}) => {
 
   return (
     <Container borderColor={borderColor}>
-        <Label>{label}</Label>
+        <Label>
+            {label}
+            <Date>{date}</Date>
+        </Label>
         <DivCases>
             <span>New</span>
             <CasesNumber>{newnum}</CasesNumber>
@@ -23,7 +25,7 @@ const Card = ({label, newnum, totalNum, date, borderColor}) => {
                 />
             </CasesNumber>
         </DivCases>
-        <Date>{date}</Date>
+       
     </Container>
   )
 }

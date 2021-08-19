@@ -31,7 +31,7 @@ const Home = () => {
         GlobalDeaths={globalData.TotalDeaths}
       />
 
-      <hr style={{margin: "20px auto"}}/>
+      {/* <hr style={{margin: "20px auto"}}/> */}
 
       <Countries
         allCountriesLast={allCountriesLast}

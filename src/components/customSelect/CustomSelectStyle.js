@@ -71,7 +71,7 @@ export const SearchBox = styled.input `
     font-size: 14px;
 
 `
-export const DropList_Items = styled.p `
+export const DropList_Items = styled.div `
      height: 300px;
     overflow: auto;
 `
