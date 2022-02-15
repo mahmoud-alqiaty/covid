@@ -1,5 +1,4 @@
 # Covid-19 tracker over all the World web app
-## Screenshot
 
  ![Desktop](./src/images/d.png)
 
