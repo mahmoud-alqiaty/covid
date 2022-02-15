@@ -9,7 +9,6 @@
 - [Overview](#overview)
   - [Features](#Features)
   - [Links](#links)
-  - [Screenshot](#Screenshot)
 - [My process](#my-process)
   - [Built with](#built-with)
   - [Continued development](#continued-development)
@@ -40,11 +39,6 @@ User is able to:
 - Live Site URL: (https://alqiaty-covid19-tracker.netlify.app/)
 - Github repo URL: (https://github.com/mahmoud-alqiaty/covid)
 
-### Screenshot
-
- ![Desktop](./src/images/d.png)
-
- ![Mobile](./src/images/m.png)
 
 ## My process
 
